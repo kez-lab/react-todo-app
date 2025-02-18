@@ -30,15 +30,18 @@ body {
   justify-content: center;
   margin-bottom: 20px;
   align-items: center;
+  gap: 10px; /* added gap between input and button */
 }
 
 .todo-input {
   flex: 1;
-  padding: 10px 15px;
+  padding: 0 15px;  /* remove vertical padding for consistent height */
   border: 1px solid #ddd;
   border-radius: 4px 0 0 4px;
   font-size: 1em;
   height: 40px;
+  box-sizing: border-box;
+  line-height: 40px; /* vertically center text */
 }
 
 .add-button {
@@ -51,6 +54,8 @@ body {
   border-radius: 0 4px 4px 0;
   transition: background 0.3s;
   height: 40px;
+  box-sizing: border-box;
+  line-height: 40px; /* ensure the text is vertically centered */
 }
 
 .add-button:hover {
