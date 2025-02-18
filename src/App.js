@@ -17,16 +17,19 @@ function App() {
   };
 
   return (
-    <div style={{ padding: '20px' }}>
-      <h1>Todo List</h1>
-      <input
-        type="text"
-        value={input}
-        onChange={e => setInput(e.target.value)}
-        placeholder="Add todo"
-      />
-      <button onClick={handleAdd}>Add</button>
-      <ul>
+    <div className="app-container">
+      <h1 className="app-header">My Todo App</h1>
+      <div className="todo-input-container">
+        <input
+          type="text"
+          className="todo-input"
+          placeholder="Add a new task"
+          value={input}
+          onChange={e => setInput(e.target.value)}
+        />
+        <button className="add-button" onClick={handleAdd}>Add</button>
+      </div>
+      <ul className="todo-list">
         {todos.map(todo => (
           <li
             key={todo.id}
