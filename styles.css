@@ -1,0 +1,71 @@
+/* Global styles */
+body {
+  margin: 0;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background: #f4f6f8;
+  color: #333;
+}
+
+/* App container styling */
+.app-container {
+  max-width: 600px;
+  margin: 50px auto;
+  padding: 20px;
+  background: #fff;
+  border-radius: 8px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+/* Header styling */
+.app-header {
+  text-align: center;
+  margin-bottom: 20px;
+  font-size: 2em;
+  color: #4a90e2;
+}
+
+/* Todo input area */
+.todo-input-container {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 20px;
+}
+
+.todo-input {
+  flex: 1;
+  padding: 10px 15px;
+  border: 1px solid #ddd;
+  border-radius: 4px 0 0 4px;
+  font-size: 1em;
+}
+
+.add-button {
+  padding: 10px 20px;
+  border: none;
+  background: #4a90e2;
+  color: #fff;
+  font-size: 1em;
+  cursor: pointer;
+  border-radius: 0 4px 4px 0;
+  transition: background 0.3s;
+}
+
+.add-button:hover {
+  background: #407ac1;
+}
+
+/* Todo list styling */
+.todo-list {
+  list-style: none;
+  padding: 0;
+}
+
+.todo-list li {
+  padding: 10px 15px;
+  border-bottom: 1px solid #eee;
+}
+
+/* Optional: on hover highlight for list items */
+.todo-list li:hover {
+  background: #f9f9f9;
+}
