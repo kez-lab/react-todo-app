@@ -29,6 +29,7 @@ body {
   display: flex;
   justify-content: center;
   margin-bottom: 20px;
+  align-items: center;
 }
 
 .todo-input {
@@ -37,10 +38,11 @@ body {
   border: 1px solid #ddd;
   border-radius: 4px 0 0 4px;
   font-size: 1em;
+  height: 40px;
 }
 
 .add-button {
-  padding: 10px 20px;
+  padding: 0 20px;
   border: none;
   background: #4a90e2;
   color: #fff;
@@ -48,6 +50,7 @@ body {
   cursor: pointer;
   border-radius: 0 4px 4px 0;
   transition: background 0.3s;
+  height: 40px;
 }
 
 .add-button:hover {
@@ -68,4 +71,47 @@ body {
 /* Optional: on hover highlight for list items */
 .todo-list li:hover {
   background: #f9f9f9;
+}
+
+/* Todo list item and actions */
+.todo-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 15px;
+  border-bottom: 1px solid #eee;
+}
+
+.todo-actions {
+  display: flex;
+  gap: 5px;
+}
+
+.update-button,
+.delete-button {
+  padding: 5px 10px;
+  border: none;
+  font-size: 0.9em;
+  cursor: pointer;
+  border-radius: 4px;
+  transition: background 0.3s;
+  height: 30px;
+}
+
+.update-button {
+  background: #f0ad4e;
+  color: #fff;
+}
+
+.update-button:hover {
+  background: #ec971f;
+}
+
+.delete-button {
+  background: #d9534f;
+  color: #fff;
+}
+
+.delete-button:hover {
+  background: #c9302c;
 }

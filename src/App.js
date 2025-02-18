@@ -1,8 +1,21 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 
 function App() {
   const [todos, setTodos] = useState([]);
   const [input, setInput] = useState('');
+
+  // Load todos from localStorage on mount
+  useEffect(() => {
+    const savedTodos = localStorage.getItem('todos');
+    if (savedTodos) {
+      setTodos(JSON.parse(savedTodos));
+    }
+  }, []);
+
+  // Save todos to localStorage on any change
+  useEffect(() => {
+    localStorage.setItem('todos', JSON.stringify(todos));
+  }, [todos]);
 
   const handleAdd = () => {
     if (!input.trim()) return;
@@ -14,6 +27,22 @@ function App() {
     setTodos(todos.map(todo =>
       todo.id === id ? { ...todo, done: !todo.done } : todo
     ));
+  };
+
+  // New: Delete a todo item
+  const handleDelete = id => {
+    setTodos(todos.filter(todo => todo.id !== id));
+  };
+
+  // New: Update a todo item using a prompt for simplicity
+  const handleUpdate = id => {
+    const todoToUpdate = todos.find(todo => todo.id === id);
+    const newText = prompt("Update TODO:", todoToUpdate.text);
+    if (newText !== null && newText.trim() !== "") {
+      setTodos(todos.map(todo =>
+        todo.id === id ? { ...todo, text: newText } : todo
+      ));
+    }
   };
 
   return (
@@ -31,15 +60,20 @@ function App() {
       </div>
       <ul className="todo-list">
         {todos.map(todo => (
-          <li
-            key={todo.id}
-            onClick={() => handleToggle(todo.id)}
-            style={{
-              textDecoration: todo.done ? 'line-through' : 'none',
-              cursor: 'pointer'
-            }}
-          >
-            {todo.text}
+          <li key={todo.id} className="todo-item">
+            <span
+              onClick={() => handleToggle(todo.id)}
+              style={{
+                textDecoration: todo.done ? 'line-through' : 'none',
+                cursor: 'pointer'
+              }}
+            >
+              {todo.text}
+            </span>
+            <div className="todo-actions">
+              <button className="update-button" onClick={() => handleUpdate(todo.id)}>Update</button>
+              <button className="delete-button" onClick={() => handleDelete(todo.id)}>Delete</button>
+            </div>
           </li>
         ))}
       </ul>
