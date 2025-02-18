@@ -13,6 +13,7 @@
   "keywords": [],
   "author": "",
   "license": "ISC",
+  "homepage": "https://kez-lab.github.io/react-todo-app",
   "dependencies": {
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
